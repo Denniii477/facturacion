@@ -7,7 +7,6 @@
     $user = 'id20586654_facturacions';
     $password = '13122191shayerA.';
     $db = 'id20586654_facturacion';*/
-
     $conection = @mysqli_connect($host, $user, $password, $db);
 
     if(!$conection){
