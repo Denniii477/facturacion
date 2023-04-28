@@ -3,6 +3,8 @@ include "../conexion.php";
 if(!empty($_POST)){
     if($_POST['idusuario']==1){
         header("location: lista_usuarios.php");
+        mysqli_close($conection);
+        
         exit;
     }
     $idusuario=$_POST['idusuario'];
@@ -13,6 +15,7 @@ if(!empty($_POST)){
                 "DELETE
                    FROM usuario
                   WHERE idusuario=$idusuario");*/
+
     ///////////////////////////////////
     //sacar de vista pero no de la BD//
     ///////////////////////////////////
@@ -20,8 +23,11 @@ if(!empty($_POST)){
                 "UPDATE usuario
                     SET estatus= 0
                   WHERE idusuario= $idusuario");
+    mysqli_close($conection);
     if($query_delete){
         header("location: lista_usuarios.php");
+        mysqli_close($conection);
+
     }else{
         echo "Error al eliminar";
     }
@@ -39,6 +45,8 @@ if(empty($_REQUEST['id']) || $_REQUEST['id']==1){
              INNER JOIN rol r
                      ON u.rol= r.idrol
                   WHERE u.idusuario= $idusuario");
+    mysqli_close($conection);
+
     $result= mysqli_num_rows($query);
     if($result>0){
         while ($data = mysqli_fetch_array($query)){

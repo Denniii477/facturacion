@@ -19,6 +19,7 @@ if(!empty($_POST)){
                        FROM usuario
                       WHERE usuario='$user'
                          OR correo='$email'");
+        mysqli_close($conection);
         $result= mysqli_fetch_array($query);
         if($result>0){
             $alert='<div class="fond_error"><p class="msg_error">El correo o el usuario ya existen.</p></div>';

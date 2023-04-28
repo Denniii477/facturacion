@@ -18,6 +18,7 @@ if(!empty($_SESSION['active'])){
                       WHERE usuario='$user'
                         AND clave='$pass'
                     ");
+            mysqli_close($conection);
             $result= mysqli_num_rows($query);
             if($result>0){
                 $data= mysqli_fetch_array($query);              
@@ -39,11 +40,10 @@ if(!empty($_SESSION['active'])){
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!--meta charset="UTF-8"-->
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/bulma.min.css">
-    <!--link rel="stylesheet" type="text/css" href="css/styles.css"-->
     <link rel="stylesheet" type="text/css" href="index.css">
        <title>Login|Facturacion</title>
 </head>

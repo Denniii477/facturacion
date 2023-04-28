@@ -57,7 +57,10 @@
                           WHERE estatus = 1
                        ORDER BY u.idusuario
                       ASC LIMIT $desde,$por_pagina");//cambiar de 0 a 1 de estatus para mostrar los borrados//
-                    $result=mysqli_num_rows($query);
+                
+                mysqli_close($conection);
+                    
+                $result=mysqli_num_rows($query);
                     if($result>0){
                         while($data=mysqli_fetch_array($query)){
                 ?>
@@ -83,22 +86,6 @@
                     }
                 ?>
             </table>
-            <!--div class="paginador">
-            <nav-- class="pagination" role="navigation" aria-label="pagination">
-                <a class="pagination-previous is-disabled" title="This is the first page">Anterior</a>
-                <a class="pagination-next">Siguiente</a>
-                <ul class="pagination-list">
-                    <li>
-                    <a class="pagination-link is-current" aria-label="Page 1" aria-current="page">1</a>
-                    </li>
-                    <li>
-                    <a class="pagination-link" aria-label="Goto page 2">2</a>
-                    </li>
-                    <li>
-                    <a class="pagination-link" aria-label="Goto page 3">3</a>
-                    </li>
-                </ul>
-                </nav-->
             <div class="paginador">
                 <ul>
                     <?php

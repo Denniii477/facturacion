@@ -11,6 +11,8 @@
           $busqueda=strtolower($_REQUEST['busqueda']);
           if(empty($busqueda)){
             header("location: lista_usuarios.php");
+            mysqli_close($conection);
+
           } ?>
 		<section id="container">
 			<h1>Lista de Usuarios</h1>
@@ -78,6 +80,8 @@
                             AND estatus = 1
                        ORDER BY u.idusuario
                       ASC LIMIT $desde,$por_pagina");//cambiar de 0 a 1 de estatus para mostrar los borrados//
+                    mysqli_close($conection);
+                    
                     $result=mysqli_num_rows($query);
                     if($result>0){
                         while($data=mysqli_fetch_array($query)){
@@ -104,45 +108,33 @@
                     }
                 ?>
             </table>
-            <!--div class="paginador">
-            <nav-- class="pagination" role="navigation" aria-label="pagination">
-                <a class="pagination-previous is-disabled" title="This is the first page">Anterior</a>
-                <a class="pagination-next">Siguiente</a>
-                <ul class="pagination-list">
-                    <li>
-                    <a class="pagination-link is-current" aria-label="Page 1" aria-current="page">1</a>
-                    </li>
-                    <li>
-                    <a class="pagination-link" aria-label="Goto page 2">2</a>
-                    </li>
-                    <li>
-                    <a class="pagination-link" aria-label="Goto page 3">3</a>
-                    </li>
-                </ul>
-                </nav-->
+            <?php 
+            if($total_registro!=0){
+            ?>
             <div class="paginador">
                 <ul>
                     <?php
                     if($pagina != 1){
                     ?>
-                    <li><a href="?pagina=<?php echo 1;?>">|<</a></li>
-                    <li><a href="?pagina=<?php echo $pagina-1;?>"><<</a></li>
+                    <li><a href="?pagina=<?php echo 1;?>&busqueda=<?php echo $busqueda;?>">|<</a></li>
+                    <li><a href="?pagina=<?php echo $pagina-1;?>&busqueda=<?php echo $busqueda;?>"><<</a></li>
                     <?php
                     }
                     for($i=1;$i<=$total_paginas;$i++){
                         if($i==$pagina){
                             echo '<li class="pageSelected">'.$i.'</lo>';
                         }else{
-                            echo '<li><a href="?pagina='.$i.'">'.$i.'</a></li>';
+                            echo '<li><a href="?pagina='.$i.'&busqueda='.$busqueda.'">'.$i.'</a></li>';
                         }
                     }
                     if($pagina != $total_paginas){
                     ?>  
-                    <li><a href="?pagina=<?php echo $pagina+1;?>">>></a></li>
-                    <li><a href="?pagina=<?php echo $total_paginas;?>">>|</a></li>
+                    <li><a href="?pagina=<?php echo $pagina+1;?>&busqueda=<?php echo $busqueda;?>">>></a></li>
+                    <li><a href="?pagina=<?php echo $total_paginas;?>&busqueda=<?php echo $busqueda;?>">>|</a></li>
                     <?php } ?>
                 </ul>
-            </!--div>
+            </div>
+        <?php }?>
 		</section>
 	<?php include './includes/footer.php'; ?>
 </body>
