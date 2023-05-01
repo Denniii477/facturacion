@@ -42,14 +42,14 @@ if(!empty($_POST)){
                 }
         }
     }
-    mysqli_close($conection);
+    
 }
 /////////////////
 //Mostrar Datos//
 /////////////////
 if(empty($_GET['id'])){
     header('location: lista_usuarios.php');
-    mysqli_close($conection);
+    
 }
 $iduser= $_GET['id'];
 $sql= mysqli_query($conection,
@@ -60,7 +60,7 @@ $sql= mysqli_query($conection,
      INNER JOIN rol r
              ON u.rol= r.idrol
           WHERE idusuario=$iduser");
-mysqli_close($conection);
+
 $result_sql= mysqli_num_rows($sql);
 if($result_sql==0){
     header('location: lista_usuarios.php');

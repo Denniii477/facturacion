@@ -298,9 +298,18 @@ table tr td{
 .notItemOne option:first-child{ /*para boorrar la casilla extra que sale cuando se va a actualizar*/
 	display:none;
 }
+.welcomecontainer{
+	display: flex;
+	justify-content: right;
+}
 .welcome{
 	width: 50%;
 	height: 50%;
+	display: flex;
+}
+.userylistuser{
+	text-align: right;
+	margin-top: 70px;
 }
 /*eliminar usuario.php*/
 .data_delete{
