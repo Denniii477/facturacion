@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-05-2023 a las 04:50:33
+-- Tiempo de generación: 08-05-2023 a las 04:59:57
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -165,7 +165,7 @@ INSERT INTO `usuario` (`idusuario`, `nombre`, `correo`, `usuario`, `clave`, `rol
 (2, 'Limber Prado Atto', 'limber@gmail.com', 'limber', '25f9e794323b453885f5181f1b624d0b', 2, 1),
 (3, 'Francisco Obando', 'franchesco@gmail.com', 'francisco', '25f9e794323b453885f5181f1b624d0b', 2, 1),
 (4, 'Juan Matos', 'juan@gmail.com', 'sachiret', '25f9e794323b453885f5181f1b624d0b', 3, 1),
-(10, 'Administrador 1', 'admin1@gmail.com', 'admin1', 'ee7a9819f6948c41aaf61513f70487ae', 1, 1),
+(10, 'admin1', 'admin1@gmail.com', 'admin1', '25f9e794323b453885f5181f1b624d0b', 1, 1),
 (11, 'Supervisor 1', 'supervisor1@gmail.com', 'supervisor1', '25f9e794323b453885f5181f1b624d0b', 2, 1),
 (12, 'Vendedor1', 'vendedor1@gmail.com', 'vendedor1', '25f9e794323b453885f5181f1b624d0b', 3, 1),
 (13, 'prueba123', 'asdas@dasd.hgasdq', 'asdasdq', 'f5bb0c8de146c67b44babbf4e6584cc0', 3, 0),
